@@ -32,15 +32,24 @@ function calculate(num1, num2, op) {
 function getQuestion() {
     const ops = ['+', '-', '*', '/'];
     const op = ops[Math.floor(Math.random() * ops.length)];
-    const num1 = Math.floor(Math.random() * 10) + 1;
-    const num2 = Math.floor(Math.random() * 10) + 1;
+    let num1, num2;
+
+    if (op === '/') {
+        // Generate a clean division question
+        num2 = Math.floor(Math.random() * 9) + 1; // Avoid 0
+        const quotient = Math.floor(Math.random() * 10) + 1;
+        num1 = num2 * quotient; // Ensures num1 is divisible by num2
+    } else {
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+    }
 
     currentQuestion = {
         question: `${num1} ${op} ${num2}`,
         answer: calculate(num1, num2, op)
     };
 
-    return currentQuestion; // Return the generated question
+    return currentQuestion;
 }
 
 // Home Page
