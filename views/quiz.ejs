@@ -1,0 +1,27 @@
+<!-- Quiz Page -->
+<%- include('partials/header') %>
+
+<div id="quiz_main_box">
+    <h1 class="quiz_heading">Math Quiz</h1>
+    <!-- Link to go back to the home page -->
+    <a class="link" href="/">Back to Home</a>
+    <div>
+        <p>Your current streak: <strong><%= streak %></strong></p>
+    </div>
+    <p class="quiz_instruction">Answer the question below:</p>
+
+    <!-- Display the current question dynamically -->
+    <h2 class="quiz_question"><%= question %></h2> <!-- Include the question variable here -->
+
+    <form action="/quiz" method="POST">
+        <label for="answer" class="lable_answer">Your Answer:</label>
+        <input type="text" id="answer" name="answer" class="input_answer" required placeholder="Type your answer here">
+        <button type="submit" class="submit_button">Submit</button>
+    </form>
+</div>
+
+<!-- Optionally, include a script for additional interactivity -->
+<script src="path/to/your/script.js"></script>
+
+</body>
+</html>
